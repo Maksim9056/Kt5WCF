@@ -15,6 +15,8 @@ namespace KT5WpfApp
         public ObservableCollection<OrderStatus> OrderStatuses { get; set; }
         public SeriesCollection PieSeriesCollection { get; set; }
         public ObservableCollection<LineSeries> LineSeriesCollection { get; set; }
+        public SeriesCollection ColumnSeriesCollection { get; set; }
+        public ChartValues<int> SecondColumnSeriesValues { get; set; }
 
         public MainWindow()
         {
@@ -22,14 +24,14 @@ namespace KT5WpfApp
             OrderStatuses = new ObservableCollection<OrderStatus>();
             PieSeriesCollection = new SeriesCollection(); // Инициализируем PieSeriesCollection
             LineSeriesCollection = new ObservableCollection<LineSeries>();
-            DataContext = this;
-
+            SecondColumnSeriesValues = new ChartValues<int>();
             LoadOrderStatuses();
         }
 
         private void LoadOrderStatuses()
         {
-          
+
+            ColumnSeriesCollection = new SeriesCollection();
 
             var client = new OrderService();
             var statuses = client.GetOrderStatuses();
@@ -62,10 +64,14 @@ namespace KT5WpfApp
                     DataLabels = true,
                   
                 };
-
-                myChart.Series.Add(mySeries);
+                SecondColumnSeriesValues.Add(status.Count);
+                ColumnSeriesCollection.Add(mySeries);
             }
-            
+            myChart.Series = ColumnSeriesCollection;
+            // Установка коллекции данных для столбчатой диаграммы
+            //myChart.Series = ColumnSeriesCollection;
+            DataContext = this;
+
         }
     }
 }
