@@ -1,0 +1,81 @@
+﻿<Window x:Class="KT5WpfApp.MainWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d"
+        Title="Order Dashboard" Height="1000" Width="1200">
+    <Grid>
+        <!--<lvc:CartesianChart Series="{Binding LineSeriesCollection}" LegendLocation="Right" Margin="10">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Order Status"/>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Number of Orders"/>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>-->
+
+        <!--<lvc:CartesianChart
+    Series="{Binding StepLineSeries}">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Status" Labels="{Binding StatusLabels}" />
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Count" />
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>-->
+        <Border>
+            <lvc:CartesianChart x:Name="myChart">
+                <!--<lvc:CartesianChart.Series>
+           -->
+                <!-- Здесь будут ваши серии (Series) -->
+                <!--
+       </lvc:CartesianChart.Series>-->
+            </lvc:CartesianChart>
+        </Border>
+
+        <Border>
+            
+
+       
+            <lvc:PieChart Series="{Binding PieSeriesCollection}" LegendLocation="Right" Margin="10,200,10,10" />
+
+        </Border>
+        <!--Столбчатый график-->
+        <!--<lvc:StepLine LegendLocation="Right" Margin="10" Width="100" Height="100">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Order Status"/>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Number of Orders"/>
+            </lvc:CartesianChart.AxisY>
+            <lvc:ColumnSeries Title="Number of Orders" Values="{Binding ColumnSeriesData}" DataLabels="True"/>
+        </lvc:StepLine>-->
+
+         <!--Линейный график--><!-- 
+        <lvc:CartesianChart Margin="10,200,310,10">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Order Date"/>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Number of Orders"/>
+            </lvc:CartesianChart.AxisY>
+            <lvc:LineSeries Title="Order Statuses" Values="{Binding LineSeriesData}"/>
+        </lvc:CartesianChart>
+
+         --><!--Ступенчатый график--> 
+        <!--<lvc:CartesianChart Margin="310,200,10,10">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Order Date"/>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Number of Orders"/>
+            </lvc:CartesianChart.AxisY>
+            <lvc:StepLineSeries Title="Order Statuses" Values="{Binding StepLineSeriesData}" />
+        </lvc:CartesianChart>-->
+
+         <!--Круговая диаграмма--><!-- 
+        <lvc:PieChart Series="{Binding PieSeriesCollection}" LegendLocation="Right" Margin="410,10,10,10"/>-->
+    </Grid>
+</Window>
